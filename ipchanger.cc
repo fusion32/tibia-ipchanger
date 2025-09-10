@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <inttypes.h>
 
 #define WIN32_LEAN_AND_MEAN 1
 #include <windows.h>
@@ -92,7 +93,7 @@ void DebugPrintBuf(uintptr Address, const uint8 *Buffer, int Count){
 	int Remainder = Count % BytesPerLine;
 
 	for(int i = 0; i < FullLines; i += 1){
-		printf("%16llX | ", (Address + i * BytesPerLine));
+		printf("%16" PRIXPTR " | ", (Address + i * BytesPerLine));
 
 		for(int j = 0; j < BytesPerLine; j += 1){
 			if(j > 0) putchar(' ');
@@ -110,7 +111,7 @@ void DebugPrintBuf(uintptr Address, const uint8 *Buffer, int Count){
 	}
 
 	if(Remainder > 0){
-		printf("%16llX | ", (Address + FullLines * BytesPerLine));
+		printf("%16" PRIXPTR " | ", (Address + FullLines * BytesPerLine));
 
 		for(int j = 0; j < BytesPerLine; j += 1){
 			if(j > 0) putchar(' ');
