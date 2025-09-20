@@ -395,6 +395,18 @@ int main(int argc, char **argv){
 			0x516620,			// RsaModulusAddr
 		},
 		{
+			772,				// Version
+			"Version 7.72",		// VersionString
+			5,					// NumLoginEndpoints
+			112,				// LoginEndpointStride
+			100,				// MaxHostNameSize
+			312,				// MaxRsaModulusSize
+			0x55C65D,			// VersionStringAddr
+			0x7152F8,			// FirstLoginHostNameAddr
+			0x71535C,			// FirstLoginPortAddr
+			0x55B620,			// RsaModulusAddr
+		},
+		{
 			810,				// Version
 			"Version 8.10",		// VersionString
 			10,					// NumLoginEndpoints
@@ -466,7 +478,7 @@ int main(int argc, char **argv){
 
 	if(Version == NULL){
 		printf("Server \"%s\" is defined with version %d which is not"
-				" currently supported.\n", AliasOrHostName, Version->Version);
+				" currently supported.\n", AliasOrHostName, Server->Version);
 		return EXIT_FAILURE;
 	}
 
